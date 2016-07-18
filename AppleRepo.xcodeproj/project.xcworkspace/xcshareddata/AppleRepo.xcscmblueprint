@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "DBEBA49FFE6D354A7908EF1A61096B0BBADFC292",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "DBEBA49FFE6D354A7908EF1A61096B0BBADFC292" : 0,
+    "9F7CC8580B708AB49ED1184EBF6BF00FC103F59D" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "202C4165-D3C6-4523-BF4A-C945A653EEA7",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "DBEBA49FFE6D354A7908EF1A61096B0BBADFC292" : "Objective-C\/",
+    "9F7CC8580B708AB49ED1184EBF6BF00FC103F59D" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "AppleRepo",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "RottenMangoes\/AppleRepo.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "ssh:\/\/github.com\/sleepyUdon\/LighthouseLab",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9F7CC8580B708AB49ED1184EBF6BF00FC103F59D"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:sleepyUdon\/Lighthouse-Lab.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "DBEBA49FFE6D354A7908EF1A61096B0BBADFC292"
+    }
+  ]
+}
