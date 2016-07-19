@@ -1,21 +1,28 @@
 {
-  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "DBEBA49FFE6D354A7908EF1A61096B0BBADFC292",
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "1F8CA63626785878DBDE4DC4430E660C93383C85",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "1F8CA63626785878DBDE4DC4430E660C93383C85" : 0,
     "DBEBA49FFE6D354A7908EF1A61096B0BBADFC292" : 0,
     "9F7CC8580B708AB49ED1184EBF6BF00FC103F59D" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "202C4165-D3C6-4523-BF4A-C945A653EEA7",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "DBEBA49FFE6D354A7908EF1A61096B0BBADFC292" : "Objective-C\/",
-    "9F7CC8580B708AB49ED1184EBF6BF00FC103F59D" : ""
+    "1F8CA63626785878DBDE4DC4430E660C93383C85" : "RottenMangoes\/",
+    "DBEBA49FFE6D354A7908EF1A61096B0BBADFC292" : "",
+    "9F7CC8580B708AB49ED1184EBF6BF00FC103F59D" : ".."
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "AppleRepo",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
-  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "RottenMangoes\/AppleRepo.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "AppleRepo.xcodeproj",
   "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/sleepyUdon\/RottenMangoes.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "1F8CA63626785878DBDE4DC4430E660C93383C85"
+    },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "ssh:\/\/github.com\/sleepyUdon\/LighthouseLab",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",

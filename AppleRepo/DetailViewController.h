@@ -7,11 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Movie.h"
 
 @interface DetailViewController : UIViewController
 
 @property (strong, nonatomic) id detailItem;
-@property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+
+
+@property (strong, nonatomic) Movie*movie;
+
+@property (weak, nonatomic) IBOutlet UIImageView *moviePicture;
+@property (weak, nonatomic) IBOutlet UILabel *movieTitle;
+
+
 
 @end
 
