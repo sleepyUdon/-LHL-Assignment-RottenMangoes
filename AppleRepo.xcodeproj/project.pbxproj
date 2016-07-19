@@ -14,6 +14,11 @@
 		498514AE1D3D3494000EEDFF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 498514AC1D3D3494000EEDFF /* Main.storyboard */; };
 		498514B01D3D3494000EEDFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 498514AF1D3D3494000EEDFF /* Assets.xcassets */; };
 		498514B31D3D3494000EEDFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 498514B11D3D3494000EEDFF /* LaunchScreen.storyboard */; };
+		7C3AC3B51D3EA344002F057D /* movieLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7C3AC3B41D3EA344002F057D /* movieLogo.png */; };
+		7C41B3D91D3E879600C54167 /* Theatre.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C41B3D81D3E879600C54167 /* Theatre.m */; };
+		7C41B3DB1D3E882300C54167 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C41B3DA1D3E882300C54167 /* MapKit.framework */; };
+		7C41B3E21D3E890B00C54167 /* MapDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C41B3E11D3E890B00C54167 /* MapDetailViewController.m */; };
+		7C41B3E61D3E8DD100C54167 /* theatres.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C41B3E51D3E8DD100C54167 /* theatres.json */; };
 		7C717FFE1D3D668F00A174A3 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C717FFD1D3D668F00A174A3 /* Movie.m */; };
 		7C7180011D3D6B5200A174A3 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C7180001D3D6B5200A174A3 /* CustomTableViewCell.m */; };
 /* End PBXBuildFile section */
@@ -31,6 +36,14 @@
 		498514AF1D3D3494000EEDFF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		498514B21D3D3494000EEDFF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		498514B41D3D3494000EEDFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7C3AC3B11D3E94C7002F057D /* CurrentLocation.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CurrentLocation.gpx; sourceTree = "<group>"; };
+		7C3AC3B41D3EA344002F057D /* movieLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = movieLogo.png; sourceTree = "<group>"; };
+		7C41B3D71D3E879600C54167 /* Theatre.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Theatre.h; sourceTree = "<group>"; };
+		7C41B3D81D3E879600C54167 /* Theatre.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Theatre.m; sourceTree = "<group>"; };
+		7C41B3DA1D3E882300C54167 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		7C41B3E01D3E890B00C54167 /* MapDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapDetailViewController.h; path = ../MapDetailViewController.h; sourceTree = "<group>"; };
+		7C41B3E11D3E890B00C54167 /* MapDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapDetailViewController.m; path = ../MapDetailViewController.m; sourceTree = "<group>"; };
+		7C41B3E51D3E8DD100C54167 /* theatres.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = theatres.json; sourceTree = SOURCE_ROOT; };
 		7C717FFC1D3D668F00A174A3 /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Movie.h; path = ../Movie.h; sourceTree = "<group>"; };
 		7C717FFD1D3D668F00A174A3 /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Movie.m; path = ../Movie.m; sourceTree = "<group>"; };
 		7C717FFF1D3D6B5200A174A3 /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
@@ -42,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C41B3DB1D3E882300C54167 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,6 +65,7 @@
 		498514941D3D3493000EEDFF = {
 			isa = PBXGroup;
 			children = (
+				7C41B3DA1D3E882300C54167 /* MapKit.framework */,
 				4985149F1D3D3493000EEDFF /* AppleRepo */,
 				4985149E1D3D3493000EEDFF /* Products */,
 			);
@@ -67,19 +82,14 @@
 		4985149F1D3D3493000EEDFF /* AppleRepo */ = {
 			isa = PBXGroup;
 			children = (
-				498514A31D3D3493000EEDFF /* AppDelegate.h */,
-				498514A41D3D3493000EEDFF /* AppDelegate.m */,
-				498514A61D3D3493000EEDFF /* MasterViewController.h */,
-				498514A71D3D3493000EEDFF /* MasterViewController.m */,
-				498514A91D3D3493000EEDFF /* DetailViewController.h */,
-				498514AA1D3D3494000EEDFF /* DetailViewController.m */,
-				7C717FFC1D3D668F00A174A3 /* Movie.h */,
-				7C717FFD1D3D668F00A174A3 /* Movie.m */,
-				498514AC1D3D3494000EEDFF /* Main.storyboard */,
+				498514B11D3D3494000EEDFF /* LaunchScreen.storyboard */,
 				7C717FFF1D3D6B5200A174A3 /* CustomTableViewCell.h */,
 				7C7180001D3D6B5200A174A3 /* CustomTableViewCell.m */,
+				7C3AC3B41D3EA344002F057D /* movieLogo.png */,
+				7C41B3DF1D3E889D00C54167 /* ViewController */,
+				7C41B3E71D3E927C00C54167 /* Objects */,
+				7C41B3E51D3E8DD100C54167 /* theatres.json */,
 				498514AF1D3D3494000EEDFF /* Assets.xcassets */,
-				498514B11D3D3494000EEDFF /* LaunchScreen.storyboard */,
 				498514B41D3D3494000EEDFF /* Info.plist */,
 				498514A01D3D3493000EEDFF /* Supporting Files */,
 			);
@@ -92,6 +102,34 @@
 				498514A11D3D3493000EEDFF /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7C41B3DF1D3E889D00C54167 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				498514AC1D3D3494000EEDFF /* Main.storyboard */,
+				7C3AC3B11D3E94C7002F057D /* CurrentLocation.gpx */,
+				498514A31D3D3493000EEDFF /* AppDelegate.h */,
+				498514A41D3D3493000EEDFF /* AppDelegate.m */,
+				498514A61D3D3493000EEDFF /* MasterViewController.h */,
+				498514A71D3D3493000EEDFF /* MasterViewController.m */,
+				498514A91D3D3493000EEDFF /* DetailViewController.h */,
+				498514AA1D3D3494000EEDFF /* DetailViewController.m */,
+				7C41B3E01D3E890B00C54167 /* MapDetailViewController.h */,
+				7C41B3E11D3E890B00C54167 /* MapDetailViewController.m */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		7C41B3E71D3E927C00C54167 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				7C717FFC1D3D668F00A174A3 /* Movie.h */,
+				7C717FFD1D3D668F00A174A3 /* Movie.m */,
+				7C41B3D71D3E879600C54167 /* Theatre.h */,
+				7C41B3D81D3E879600C54167 /* Theatre.m */,
+			);
+			name = Objects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,8 +190,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				498514B31D3D3494000EEDFF /* LaunchScreen.storyboard in Resources */,
+				7C41B3E61D3E8DD100C54167 /* theatres.json in Resources */,
 				498514B01D3D3494000EEDFF /* Assets.xcassets in Resources */,
 				498514AE1D3D3494000EEDFF /* Main.storyboard in Resources */,
+				7C3AC3B51D3EA344002F057D /* movieLogo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,7 +208,9 @@
 				498514A81D3D3493000EEDFF /* MasterViewController.m in Sources */,
 				7C7180011D3D6B5200A174A3 /* CustomTableViewCell.m in Sources */,
 				7C717FFE1D3D668F00A174A3 /* Movie.m in Sources */,
+				7C41B3E21D3E890B00C54167 /* MapDetailViewController.m in Sources */,
 				498514A21D3D3493000EEDFF /* main.m in Sources */,
+				7C41B3D91D3E879600C54167 /* Theatre.m in Sources */,
 				498514AB1D3D3494000EEDFF /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

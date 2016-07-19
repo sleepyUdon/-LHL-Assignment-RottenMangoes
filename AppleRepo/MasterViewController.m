@@ -15,6 +15,7 @@
 
 @property NSMutableArray *movies;
 @property UIImage *tmpImage;
+@property Movie *movie;
 
 @end
 
@@ -95,7 +96,13 @@
 {
     if ([[segue identifier] isEqualToString:@"showDetail"])
     {
-        NSIndexPath *selectedPath = [self.tableView indexPathForCell:sender];
+        UIButton *button = (UIButton *)sender;
+        CGPoint buttonLocationInTableView = [button convertPoint:button.bounds.origin toView:self.tableView];
+        NSIndexPath *selectedPath = [self.tableView indexPathForRowAtPoint:buttonLocationInTableView];
+        
+       // NSLog(@"Row: %d", selectedPath.row);
+        
+       // NSIndexPath *selectedPath = [self.tableView indexPathForCell:sender];
         Movie *movie = self.movies[selectedPath.item];
         DetailViewController *detailController = (DetailViewController *)[segue destinationViewController];
         detailController.movie = movie;
@@ -103,7 +110,9 @@
     
 }
 
-#pragma mark - Table View
+
+
+#pragma mark - Table View Datasource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;

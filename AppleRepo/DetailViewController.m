@@ -20,16 +20,16 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  // Do any additional setup after loading the view, typically from a nib.
     
-    self.movie.movieTitle = self.movieTitle.text;
-    self.movie.moviePicture = self.moviePicture.image;
+    self.movieTitle.text= self.movie.movieTitle;
+    self.moviePicture.image = self.movie.moviePicture;
+    
+    
     
 }
 
 - (void)didReceiveMemoryWarning {
   [super didReceiveMemoryWarning];
-  // Dispose of any resources that can be recreated.
 }
 
 @end
