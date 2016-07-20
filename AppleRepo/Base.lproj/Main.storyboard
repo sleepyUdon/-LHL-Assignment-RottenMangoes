@@ -109,7 +109,7 @@
                                             <rect key="frame" x="505" y="10" width="80" height="30"/>
                                             <state key="normal" title="MAP"/>
                                             <connections>
-                                                <segue destination="FpL-Gc-FhZ" kind="show" id="xeM-pQ-C6Z"/>
+                                                <segue destination="FpL-Gc-FhZ" kind="show" identifier="showMap" id="xeM-pQ-C6Z"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dFQ-fQ-kYT">

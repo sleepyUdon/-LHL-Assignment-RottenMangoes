@@ -10,6 +10,8 @@
 #import "DetailViewController.h"
 #import "Movie.h"
 #import "CustomTableViewCell.h"
+#import "MapDetailViewController.h"
+
 
 @interface MasterViewController ()
 
@@ -35,7 +37,7 @@
     NSURLSessionDataTask *dataTask = [sharedSession dataTaskWithRequest:urlRequest completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
         
-        NSLog(@"C. Request Done");
+//        NSLog(@"C. Request Done");
         
         if (!error) {
             // NSLog(@"Data: %@", data);
@@ -55,7 +57,7 @@
                     movie.movieSynopsis = movieDict [@"synopsis"];
                     
                     NSString *urlImage =  movieDict[@"posters"][@"thumbnail"];
-                    NSLog(@"%@", urlImage);
+//                    NSLog(@"%@", urlImage);
 
                     UIImage *tmpImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:urlImage]]];
                     movie.moviePicture = tmpImage;
@@ -100,14 +102,22 @@
         CGPoint buttonLocationInTableView = [button convertPoint:button.bounds.origin toView:self.tableView];
         NSIndexPath *selectedPath = [self.tableView indexPathForRowAtPoint:buttonLocationInTableView];
         
-       // NSLog(@"Row: %d", selectedPath.row);
-        
-       // NSIndexPath *selectedPath = [self.tableView indexPathForCell:sender];
         Movie *movie = self.movies[selectedPath.item];
         DetailViewController *detailController = (DetailViewController *)[segue destinationViewController];
         detailController.movie = movie;
     }
-    
+    else if ([[segue identifier] isEqualToString:@"showMap"])
+        
+    {
+        UIButton *button = (UIButton *)sender;
+        CGPoint buttonLocationInTableView = [button convertPoint:button.bounds.origin toView:self.tableView];
+        NSIndexPath *selectedPath = [self.tableView indexPathForRowAtPoint:buttonLocationInTableView];
+        
+        Movie *movie = self.movies[selectedPath.item];
+                MapDetailViewController *mapDetailviewController = (MapDetailViewController *)[segue destinationViewController];
+                mapDetailviewController.movie = movie;
+    }
+
 }
 
 
