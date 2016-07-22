@@ -23,10 +23,9 @@
     
     self.movieTitle.text= self.movie.movieTitle;
     self.moviePicture.image = self.movie.moviePicture;
+    self.movieReview.text = [NSString stringWithFormat:@"%@",self.movie.movieReview];
     
-    
-    
-}
+    }
 
 - (void)didReceiveMemoryWarning {
   [super didReceiveMemoryWarning];

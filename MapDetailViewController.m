@@ -20,6 +20,7 @@
 @property (assign, nonatomic) BOOL shouldZoomIntoUser;
 @property NSMutableArray *theatres;
 @property NSMutableArray *movies;
+@property CLLocation *currentLocation;
 
 
 
@@ -36,6 +37,8 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
+    
     // Do any additional setup after loading the view.
 
 
@@ -45,8 +48,8 @@
     self.locationManager.delegate = self;
 
     self.mapView.delegate = self;
-    //self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    //self.locationManager.distanceFilter = 50;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    self.locationManager.distanceFilter = 50;
 
     if ([CLLocationManager locationServicesEnabled]) {
     
@@ -56,24 +59,30 @@
         }
     
     }
+    self.currentLocation = self.locationManager.location;
+//    [self.locationManager startUpdatingLocation];
 
     [self addTheatres];
-
 }
 
 
 
 
 - (void)addTheatres {
-    
-    NSString *baseURL = @"http://lighthouse-movie-showtimes.herokuapp.com/theatres.json?address=M6K2N1&movie=";
-//    NSString *appendURL =@"Ghostbusters"; //hardcoded
-    NSString *appendURL = self.movie.movieTitle;
-    NSLog(@"movieTitle: %@", self.movie.movieTitle);
+    NSString *baseURL = @"http://lighthouse-movie-showtimes.herokuapp.com/theatres.json?address=";
+    NSString *postalCode = @"M6K2N1";
+    NSString *appendURL = @"&movie=";
+    NSString *appendURL1 = self.movie.movieTitle;
+    NSString *endURL = [NSString stringWithFormat:@"%@%@%@%@",baseURL, postalCode,appendURL, appendURL1];
+    NSString* encodedEndURl = [endURL stringByReplacingOccurrencesOfString:@" " withString:@"_"];
 
-    NSString *endURL = [baseURL stringByAppendingString:appendURL];
-                            
-    NSURL *url = [NSURL URLWithString:endURL];
+//    NSString *endURL = [[[baseURL stringByAppendingString:postalCode]stringByAppendingString:appendURL]stringByAppendingString:appendURL1];
+    
+//    NSString *endURL = @"http://lighthouse-movie-showtimes.herokuapp.com/theatres.json?address=M5V2H8&movie=Ghostbusters";
+
+    NSLog(@"%@", encodedEndURl);
+
+    NSURL *url = [NSURL URLWithString:encodedEndURl];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
     
     NSURLSession *sharedSession = [NSURLSession sharedSession];
@@ -94,6 +103,7 @@
             if (!jsonError) {
                  NSLog(@"Data: %@", theatresArray);
 
+                NSMutableArray *annotations = [NSMutableArray array];
                 
                 for (NSDictionary *theatre in theatresArray) {
                     
@@ -109,8 +119,18 @@
                     marker.subtitle = theatre[@"address"];
                     NSLog(@"%@", marker.subtitle);
 
+                    [annotations addObject:marker];
+                   
+                }
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
                     
-                    [self.mapView addAnnotation:marker];}
+                    [self.mapView addAnnotations:annotations];
+                    
+                    
+                });
+                
+                
             
             } else {
             NSLog(@"Request error: %@", error.localizedDescription);
@@ -153,7 +173,7 @@
         
         CLLocationCoordinate2D coordinate = location.coordinate;
         
-        MKCoordinateRegion region = MKCoordinateRegionMake(coordinate, MKCoordinateSpanMake(0.5, 0.5));
+        MKCoordinateRegion region = MKCoordinateRegionMake(coordinate, MKCoordinateSpanMake(0.1,0.1));
         [self.mapView setRegion:region animated:YES];
     }
 }
@@ -163,6 +183,7 @@
 }
 
 #pragma mark - MKMapViewDelegate
+
 
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
@@ -175,9 +196,7 @@
         theatreView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"movieLogo"];
         theatreView.image = [UIImage imageNamed:@"movieLogo"];
         theatreView.frame = CGRectMake(0, 0, 50, 50);
-        theatreView.centerOffset = CGPointMake(0, - theatreView.image.size.height /2);
-//        [mapView viewForAnnotation:annotation];
-//        theatreView.image = [annotation getPin];
+        theatreView.centerOffset = CGPointMake(0, - theatreView.frame.size.height /2);
 
     }
     
@@ -188,6 +207,7 @@
 - (void)setCoordinate:(CLLocationCoordinate2D)newCoordinate
 {
 }
+ 
 
 
 @end

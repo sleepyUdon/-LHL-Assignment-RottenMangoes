@@ -13,4 +13,6 @@
 @property (strong, nonatomic) NSString *movieTitle;
 @property (strong, nonatomic) UIImage *moviePicture;
 @property (strong,nonatomic)  NSString *movieSynopsis;
+@property (strong,nonatomic)  NSURL *movieReview;
+
 @end

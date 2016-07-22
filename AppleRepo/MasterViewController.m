@@ -16,7 +16,6 @@
 @interface MasterViewController ()
 
 @property NSMutableArray *movies;
-@property UIImage *tmpImage;
 @property Movie *movie;
 
 @end
@@ -25,9 +24,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    [self fetchMovieData];
+    [self fetchMovieReview];
+    
+}
 
-    self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+
+    - (void)fetchMovieData {
     
     NSURL *url = [NSURL URLWithString:@"http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json?apikey=55gey28y6ygcr8fjy4ty87ek&page_limit=50"];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
@@ -87,11 +90,69 @@
     
 
 
+
+- (void)fetchMovieReview {
+
+    NSURL *url = [NSURL URLWithString:@"http://api.rottentomatoes.com/api/public/v1.0/movies/771311818/reviews.json?apikey=j9fhnct2tp8wu2q9h75kanh9&page_limit=3"];
+    
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
+    
+    NSURLSession *sharedSession = [NSURLSession sharedSession];
+    
+    NSURLSessionDataTask *dataTask = [sharedSession dataTaskWithRequest:urlRequest completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+
+        //        NSLog(@"C. Request Done");
+        
+        if (!error) {
+            // NSLog(@"Data: %@", data);
+            
+            NSError *jsonError;
+            
+            NSDictionary *apiInfo = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
+            NSArray *movieReviewsArray = apiInfo[@"reviews"];
+            
+            if (!jsonError) {
+
+                NSMutableArray *movies = [NSMutableArray array];
+
+                for (NSDictionary *movieReviewDict in movieReviewsArray) {
+                    Movie *movie = [[Movie alloc] init];
+                    
+                    NSURL *filePath= movieReviewDict [@"links"][@"review"];;
+                    
+                    movie.movieReview = filePath;
+                    
+                    [movies addObject:movie];
+                    
+
+                }
+
+                self.movies = movies;
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.tableView reloadData];
+                });
+                
+            }
+            
+            
+        } else {
+            NSLog(@"Request error: %@", error.localizedDescription);
+        }
+        
+    }];
+    
+    [dataTask resume];
+    
+}
+
+
+//
 - (void)viewWillAppear:(BOOL)animated {
     self.clearsSelectionOnViewWillAppear = self.splitViewController.isCollapsed;
     [super viewWillAppear:animated];
 }
-
 #pragma mark - Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
